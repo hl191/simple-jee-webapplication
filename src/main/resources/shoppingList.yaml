@@ -1,0 +1,54 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Simple Shopping List Api
+paths:
+  /shoppingList:
+    get:
+      summary: List all items
+      operationId: listShoppingItems
+      tags:
+        - ShoppingList
+      responses:
+        '200':
+          description: A List of Items
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ShoppingList"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+components:
+  schemas:
+    ShoppingList:
+      type: array
+      items:
+        $ref: "#/components/schemas/ShoppingItem"
+
+    ShoppingItem:
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        priority:
+          type: integer
+
+    Error:
+      required:
+        - errorCode
+        - additionalInformation
+      properties:
+        errorCode:
+          type: string
+        additionalInformation:
+          type: string
