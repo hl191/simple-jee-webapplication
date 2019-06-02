@@ -3,7 +3,7 @@ info:
   version: 1.0.0
   title: Simple Shopping List Api
 paths:
-  /shoppingList:
+  /shopping-list:
     get:
       summary: List all items
       operationId: listShoppingItems

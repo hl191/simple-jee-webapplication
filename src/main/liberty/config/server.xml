@@ -1,0 +1,10 @@
+<server>
+
+    <featureManager>
+        <feature>jaxrs-2.1</feature>
+    </featureManager>
+
+    <httpEndpoint httpPort="8080" httpsPort="8081"
+                  id="defaultHttpEndpoint" host="*" />
+
+</server>
